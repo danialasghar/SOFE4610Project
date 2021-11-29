@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Temperature</title>
+    <style>
+        h1 {padding-top: 1em}
+
+        #inside { padding-top: 1em;}
+
+        li{
+            padding-top: 1em;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Current conditions in your home</h1>
+
+    <div id="inside">
+    
+    <p><strong>Temperature: </strong>{{ temperature.temperature }} &deg;C</p>
+    
+    <p><strong>Humidity: </strong>{{ temperature.humidity }}%</p>
+    </div>
+    </center>
+
+
+    <h2>All past conditions in your home</h2>
+
+    <ol>
+    {% for temp in tempList reversed %}
+        <li>
+            <strong>Temperature: </strong>{{temp.temperature}} &deg;C <br>
+            <strong>Humidity: </strong>{{temp.humidity}}%
+        </li>
+        
+    {% endfor %}
+    </ol>
+
+    
+</body>
+</html>
