@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-z9267^md0tym$ojcs^(m)zot#ug#sn@xp#&mbejw$$p$*jk1ay
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -132,3 +132,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000'
 ]
+
+STATIC_ROOT = '/root/IoTProject/site/public/static'

@@ -18,7 +18,7 @@
         }
     </style>
 </head>
-<body>
+<body>	
     <center>
     <h1>Current conditions in your home</h1>
 
@@ -27,6 +27,7 @@
     <p><strong>Temperature: </strong>{{ temperature.temperature }} &deg;C</p>
     
     <p><strong>Humidity: </strong>{{ temperature.humidity }}%</p>
+<p><strong>Human Detected?: </strong>{{ temperature.home }}</p>
     </div>
     </center>
 
@@ -36,8 +37,9 @@
     <ol>
     {% for temp in tempList reversed %}
         <li>
-            <strong>Temperature: </strong>{{temp.temperature}} &deg;C <br>
-            <strong>Humidity: </strong>{{temp.humidity}}%
+            	<strong>Temperature: </strong>{{temp.temperature}} &deg;C <br>
+            	<strong>Humidity: </strong>{{temp.humidity}}% <br>
+		<strong>Anyone Home?: </strong>{{temp.home}}
         </li>
         
     {% endfor %}

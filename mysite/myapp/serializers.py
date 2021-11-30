@@ -4,4 +4,4 @@ from .models import Conditions
 class ConditionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Conditions
-        fields = ('temperature', 'humidity')
+        fields = ('temperature', 'humidity', 'home')

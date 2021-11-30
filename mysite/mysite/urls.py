@@ -22,7 +22,7 @@ router = routers.DefaultRouter()
 router.register(r'myapp', views.ConditionView, 'myapp')
 
 urlpatterns = [
-    path('app/', include('myapp.urls')),
+    path('', include('myapp.urls')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls))
 ]
