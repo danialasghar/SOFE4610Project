@@ -19,31 +19,184 @@
     </style>
 </head>
 <body>	
-    <center>
-    <h1>Current conditions in your home</h1>
+ 
 
-    <div id="inside">
+
+
+    <!DOCTYPE html>
+    <html lang="en">
     
-    <p><strong>Temperature: </strong>{{ temperature.temperature }} &deg;C</p>
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+            .row.content {
+                height: 100vh;
+            }
     
-    <p><strong>Humidity: </strong>{{ temperature.humidity }}%</p>
-<p><strong>Human Detected?: </strong>{{ temperature.home }}</p>
-    </div>
-    </center>
-
-
-    <h2>All past conditions in your home</h2>
-
-    <ol>
-    {% for temp in tempList reversed %}
-        <li>
-            	<strong>Temperature: </strong>{{temp.temperature}} &deg;C <br>
-            	<strong>Humidity: </strong>{{temp.humidity}}% <br>
-		<strong>Anyone Home?: </strong>{{temp.home}}
-        </li>
+            /* Set gray background color and 100% height */
+            .sidenav {
+                background-color: #f1f1f1;
+                height: 100vh;
+            }
+            h4{
+                font-weight: bold;
+            }
+    
+            /* On small screens, set height to 'auto' for the grid */
+            @media screen and (max-width: 767px) {
+                .row.content {
+                    height: auto;
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+    
+        <nav class="navbar navbar-inverse visible-xs">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Smart Thermostat</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Dashboard</a></li>
+                        <li><a href="#">Temperature</a></li>
+                        <li><a href="#">Automate Temprature</a></li>
+                        <li><a href="#">Past Temprature Trends</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         
-    {% endfor %}
-    </ol>
+        <div class="container-fluid">
+            <div class="row content">
+                <div class="col-lg-2 sidenav hidden-xs">
+                    <h2>Logo</h2>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="#section1" ">Dashboard</a></li>
+                        <div style="width: 100%;">
+                        <li><a href="#section2">Temperature</a></li>
+                        </div>
+                        <div style="width: 100%;">
+                        <li><a href="#section3">Humidity</a></li>
+                        </div>
+                        <div style="width: 100%;">
+                        <li><a href="#section3">Set Conditions</a></li>
+                        </div>
+                        <div style="width: 100%;">
+                            <li><a href="#section3">Schedule</a></li>
+                        </div>
+                    </ul><br>
+                </div>
+                <br>
+    
+                <div class="col-sm-9">
+                    <div class="well">
+                        <h4>Dashboard</h4>
+                        <p>Fully Operational</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <h4><strong>Temperature </strong></h4>
+                                <p>{{ temperature.temperature }} &deg;C</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <h4><strong>Humidity</strong></h4>
+                                <p>{{ temperature.humidity }}%</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <h4><strong>Home Status</strong></h4>
+                                {% if temperature.home %}
+                                <p>Active</p>
+                                {% else %}
+                                <p>Inactive</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <h4>{{country}}</h4>
+                                <p>{{weather}} &deg;C</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="well">
+                                <h4>Temperature History</h4>
+                                <ol>
+                                {% for temp in tempList reversed %}
+                                    
+                                        <li><p>{{temp.temperature}} &deg;C</p></li>
+                                    
+                                {%endfor%}
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="well">
+                                <h4>Humidity History</h4>
+                                <ol>
+                                {% for temp in tempList reversed %}
+                                <li><p>{{temp.humidity}} %</p></li>
+                                
+                                {%endfor%}
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="well">
+                                <h4>Home Status</h4>
+                                <ol>
+                                {% for temp in tempList reversed %}
+                                    {% if temp.home %}
+                                    <li><p>Active</p></li>
+                                    {% else %}
+                                    <li><p>Inactive</p></li>
+                                    {% endif %}
+                                
+                                {%endfor%}
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-4">
+                            <div class="well">
+                                <h4>Graph</h4>
+                                
+                                {{ tempgraph |safe }}
+                                
+                                {{ humidgraph |safe }}
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+    </body>
+    
+    </html>
+
 
     
 </body>
