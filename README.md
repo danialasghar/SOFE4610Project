@@ -1,2 +1,3 @@
 # SOFE4610Project
-## Django Web Server 
+## Django Web Server for Smart Thermostat 
+### Danial Asghar, Yusuf Shaik, Hamza Farhat 
