@@ -16,6 +16,7 @@
         li{
             padding-top: 1em;
         }
+
     </style>
 </head>
 <body>	
@@ -79,24 +80,24 @@
                 </div>
             </div>
         </nav>
-        
+
         <div class="container-fluid">
             <div class="row justify-content-between">
                 <div class="col-lg-2 sidenav hidden-xs" style="z-index:100; position:fixed;">
-                    <h2>Logo</h2>
+                    <h2>Home Hub</h2>
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#section1" ">Dashboard</a></li>
+                        <li class="active"><a href="#dash" ">Dashboard</a></li>
                         <div style="width: 100%;">
-                        <li><a href="#section2">Temperature</a></li>
+                        <li><a href="#temphistory">Temperature</a></li>
                         </div>
                         <div style="width: 100%;">
-                        <li><a href="#section3">Humidity</a></li>
+                        <li><a href="#humidhistory">Humidity</a></li>
                         </div>
                         <div style="width: 100%;">
-                        <li><a href="#section3">Set Conditions</a></li>
+                        <li><a>Set Conditions</a></li>
                         </div>
                         <div style="width: 100%;">
-                            <li><a href="#section3">Schedule</a></li>
+                            <li><a>Schedule</a></li>
                         </div>
 			<div style="width:100%;">
 				<h3>Developer</h3>
@@ -115,7 +116,7 @@
                 <br>
     
                 <div class="col-sm-9">
-                    <div class="well">
+                    <div class="well" id="dash">
                         <h4>Dashboard</h4>
                         <p>Fully Operational</p>
                     </div>
@@ -136,9 +137,9 @@
                             <div class="well">
                                 <h4><strong>Home Status</strong></h4>
                                 {% if temperature.home %}
-                                <p>Active</p>
+                                <p>Occupied</p>
                                 {% else %}
-                                <p>Inactive</p>
+                                <p>Unoccupied</p>
                                 {% endif %}
                             </div>
                         </div>
@@ -154,7 +155,7 @@
                             <div class="well">
                                 <h4>Temperature History</h4>
                                 <ol>
-                                {% for temp in tempList reversed %}
+                                {% for temp in tempList %}
                                     
                                         <li><p>{{temp.temperature}} &deg;C</p></li>
                                     
@@ -166,7 +167,7 @@
                             <div class="well">
                                 <h4>Humidity History</h4>
                                 <ol>
-                                {% for temp in tempList reversed %}
+                                {% for temp in tempList %}
                                 <li><p>{{temp.humidity}} %</p></li>
                                 
                                 {%endfor%}
@@ -179,9 +180,9 @@
                                 <ol>
                                 {% for temp in tempList reversed %}
                                     {% if temp.home %}
-                                    <li><p>Active</p></li>
+                                    <li><p>Occupied</p></li>
                                     {% else %}
-                                    <li><p>Inactive</p></li>
+                                    <li><p>Unoccupied</p></li>
                                     {% endif %}
                                 
                                 {%endfor%}
@@ -189,13 +190,20 @@
                             </div>
                         </div>
                         
-                        <div class="col-md-12">
+                        <div class="col-md-12" id="temphistory">
                             <div class="well">
-                                <h4>Graph</h4>
                                 
-                                {{ tempgraph |safe }}
+                                <center>{{ tempgraph |safe }}</center>
                                 
-                                {{ humidgraph |safe }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" id="humidhistory">
+                            <div class="well">
+                                
+                                <center>{{ humidgraph |safe }}</center>
+                                
+                                
                             </div>
                         </div>
                         
