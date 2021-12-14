@@ -62,7 +62,7 @@
 
 - [Screenshots and Videos](https://github.com/danialasghar/SOFE4610Project/tree/main/Screenshots%20and%20Video) Contains the screenshots of the frontend during execution and link to video recording
     <details>
-    <summary>Click Here to Expand</summary>
+    <summary>Click Here to Expand Details</summary>
 
     - Frontend1.png - Screenshot of the Django front-end view displaying current and historical weather data.
     - Frontend2.png - Screenshot of Temperature history on the front-end which is created using Matplotlib.
