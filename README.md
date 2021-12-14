@@ -43,7 +43,7 @@
         - wsgi - is used to help your Django application communicate with the webserver.
         - asgi - is a standard for Python asynchronous web apps and servers to communicate with each other.
 
-- [IoT Design Methodology](/https://github.com/danialasghar/SOFE4610Project/tree/main/Design%20%26%20Architecture) Contains the IoT Design metholodogy steps created in Assignment 2
+- [IoT Design Methodology](/https://github.com/danialasghar/SOFE4610Project/tree/main/IoT%20Design%20Methodology) Contains the IoT Design metholodogy steps created in Assignment 2
     <details>
     <summary>Click to Expand Details</summary>
 
