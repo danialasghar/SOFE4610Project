@@ -1,0 +1,13 @@
+Step 1:
+Purpose & Requirements Specification;
+
+Purpose: A smart thermostat system that will lower/raise the temperature based on the current temperature, or whether or not the user is home
+
+Behaviour:  the smart thermostat system will work in 2 ways. The system will sense if a user is home or not. If a user is home, the temperature will be regulating by raising/lowering the temperature based on if the current temperature is too high or too low. This specific system will turn on a blue light to signify if the temperature is being lowered, and turn on a red light to identify if the temperature is being raised. If a user is not home, the temperature will not be regulated, saving energy.
+
+Systems Management Requirements: The system should provide an interface to turn on or off the thermostat remotely.
+
+Data Analysis Requirements: Data will be analyzed when reading values from the sensor
+Application Development Requirement: The application will be a physical device left in the house, accessible from a smart phone.
+
+Security Requirement: The system will provide an authentication system when manual intervention is needed
